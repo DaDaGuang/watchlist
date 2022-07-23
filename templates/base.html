@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
     {% endblock %}
 </head>
+
 <body>
+    {% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+    {% endfor %}
     <h2>
         <img alt="Avatar" class="favicon" src="{{ url_for('static', filename='images/favicon.png') }}">
         {{ user.name }}'s Watchlist
